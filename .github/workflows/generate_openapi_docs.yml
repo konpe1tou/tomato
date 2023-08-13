@@ -1,9 +1,8 @@
 name: generate OpenAPI docs
 
 on:
-    push
-    # push:
-    #     branches: [main]
+    push:
+        branches: [main]
 
 jobs:
     deploy:
@@ -12,8 +11,8 @@ jobs:
         steps:
             - name: Checkout source code
               uses: actions/checkout@v2
-              # with:
-              #     ref: main
+              with:
+                  ref: main
 
             - name: Set up JDK
               uses: actions/setup-java@v1
