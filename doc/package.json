@@ -1,0 +1,10 @@
+{
+    "name": "doc",
+    "main": "index.js",
+    "scripts": {
+        "build": "redocly build-docs openapi.yml --output=index.html"
+    },
+    "dependencies": {
+        "@redocly/cli": "^1.0.2"
+    }
+}
