@@ -5,7 +5,7 @@
 ## How to start
 
 ## OpenAPI
-http://localhost:15000/tomato/swagger-ui/index.html
+http://localhost:15000/tomato/swagger-ui/index.html  
 doc/openapi.yml
 
 ## Backend Server
