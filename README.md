@@ -6,7 +6,7 @@
 
 ## OpenAPI
 http://localhost:15000/tomato/swagger-ui/index.html  
-doc/openapi.yml
+back/doc/openapi.yml
 
 ## Backend Server
 http://localhost:15000/tomato/
