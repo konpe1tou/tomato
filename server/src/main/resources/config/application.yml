@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: tomato
+    jpa.open-in-view: true
+    messages.basename: messages
+    jackson:
+      generator:
+        write_bigdecimal_as_plain: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:D:/projects/tomato
+    username: test
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      trace: true
+      web-allow-others: true
+server:
+  address: 0.0.0.0
+  port: 15000
+  servlet:
+    context-path: /${spring.application.name}
+  error:
+    whitelabel.enabled: true
+    path: /error
+debug: false
+logging:
+  file.name: log/tomato.log
+  charset:
+    console: UTF-8
+    file: UTF-8
+spring-doc:
+  enable-native-support: true
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
