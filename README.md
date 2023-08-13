@@ -9,9 +9,14 @@ https://konpe1tou.github.io/tomato/
 
 ## ◎Package
 - back  
-バックエンド（Java/Spring Boot）のソースファイルを配置しています。
+バックエンドのソースファイルを配置しています。  
+Java 11  
+Spring Boot 2.7  
 - front  
-フロントエンド（JavaScript/React）のソースファイルを配置しています。
+フロントエンドのソースファイルを配置しています。  
+JavaScript  
+React 18  
+Node 14
 - doc  
 OpenAPIのファイルを配置しています。
 
