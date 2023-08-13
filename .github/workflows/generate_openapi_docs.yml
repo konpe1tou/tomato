@@ -1,29 +1,47 @@
 name: generate OpenAPI docs
 
 on:
-    push:
-        branches: [main]
+    push
+    # push:
+    #     branches: [main]
 
 jobs:
     deploy:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v2
-              with:
-                  ref: main
+            - name: Checkout source code
+              uses: actions/checkout@v2
+              # with:
+              #     ref: main
 
-            - uses: actions/setup-node@v2
+            - name: Set up JDK
+              uses: actions/setup-java@v1
+              with:
+                  java-version: 11
+
+            - name: Set up Node
+              uses: actions/setup-node@v2
               with:
                   node-version: "16"
                   cache: "npm"
                   cache-dependency-path: "./doc/package-lock.json"
-            - run: cd doc && npm ci
 
-            - name: build
+            - name: Init Node
+              run: cd doc && npm ci
+
+            - name: Build and export OpenAPI yaml
+              run: |
+                  cd ./back
+                  chmod +x ./gradlew
+                  ./gradlew bootRun &
+                  sleep 60 # Wait for the application to start
+                  curl http://localhost:15000/tomato/api-docs > ../doc/openapi.yml
+
+            - name: Convert OpenAPI yaml to HTML by redocly
               run: cd doc && npm run build
 
-            - name: pages deploy
+            - name: Pages deploy
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
