@@ -6,10 +6,13 @@
 
 ## OpenAPI
 http://localhost:15000/tomato/swagger-ui/index.html  
-back/doc/openapi.yml
+doc/openapi.yml
 
 ## Backend Server
 http://localhost:15000/tomato/
 
 ## Frontend DevServer
 http://localhost:3000
+
+## re-generate OpenAPI doc
+`redocly build-docs doc/openapi.yml`
