@@ -4,12 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       env:
-        type: choice
         description: 'Environment name'
         required: true
-        options:
-        - stg1
-        - stg2
+        default: 'dev'
 jobs:
   Explore-GitHub-Actions:
     if: ${{ github.event.inputs.env != 'stg1' }}
