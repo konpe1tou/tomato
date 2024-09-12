@@ -1,11 +1,18 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
-env:
-  ENVIRONMENT: 'stg1'
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        type: choice
+        description: 'Environment name'
+        required: true
+        options:
+        - stg1
+        - stg2
 jobs:
   Explore-GitHub-Actions:
-    if: ${{ env.ENVIRONMENT != 'stg1' }}
+    if: ${{ github.event.inputs.env != 'stg1' }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
